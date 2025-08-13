@@ -38,7 +38,7 @@ const story = () => {
           </div>
           <div className="h-full  w-20 flex flex-col items-center gap-2">
             <span className="font-bold text-xl border-b-2">2025</span>
-            <span className="text-sm font-light">Now we have Sweet & Spicy both </span>
+            <span className="text-sm font-light">Now we have Sweet & Spicy both and Lora </span>
           </div>
         </div>
       </div>
