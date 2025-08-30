@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           <div className=" h-[10vh] w-full absolute top-0 z-15">
             <Navbar />
           </div>
-
+          <script src="https://cdn.lordicon.com/lordicon.js"></script>
           {children}
         </div>
         <div className="bg-[#5b0017] ">

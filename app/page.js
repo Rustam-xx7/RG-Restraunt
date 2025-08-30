@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -41,9 +42,11 @@ export default function Home() {
               <span>Among the best Bengali Chefs in the world ,</span>
               <span>serving you something beyond flvor .</span>
             </div>
-            <button className=" w-fit px-4 py-2 border-amber-400 border-2 font-serif text-xl font-extralight rounded-sm ">
-              Our Menu
-            </button>
+            <Link href="/menu">
+              <button className=" w-fit px-4 py-2 border-amber-400 border-2 font-serif text-xl font-extralight rounded-sm ">
+                Our Menu
+              </button>
+            </Link>
           </div>
         </div>
         <div className="md:h-25 h-10 md:py-5  my-4 relative">
@@ -91,9 +94,11 @@ export default function Home() {
             <span className="text-sm font-light text-white/60">
               Experiance The Bengali Vibes .
             </span>
-            <button className=" w-fit px-4 py-2 my-4 border-amber-400 border-2 font-serif md:text-xl text-sm font-extralight rounded-sm ">
-              Our Venue
-            </button>
+            <Link href="/venue">
+              <button className=" w-fit px-4 py-2 my-4 border-amber-400 border-2 font-serif md:text-xl text-sm font-extralight rounded-sm  relative z-10">
+                Our Venue
+              </button>
+            </Link>
           </div>
         </div>
         <div className="h-fit my-10 flex justify-center items-center">
@@ -110,12 +115,12 @@ export default function Home() {
             </div>
             <div className="recipe w-[60%] bg-amber-900 h-full">
               <Image
-            src="/img/image 3.jpg"
-            alt=""
-            width={100}
-            height={200}
-            className="h-full w-[60%] object-fit object-left absolute z-1"
-          ></Image>
+                src="/img/image 3.jpg"
+                alt=""
+                width={100}
+                height={200}
+                className="h-full w-[60%] object-fit object-left absolute z-1"
+              ></Image>
             </div>
           </div>
         </div>
@@ -136,12 +141,14 @@ export default function Home() {
               className="opacity-100  "
             ></Image>
             <div className="text-center flex flex-col text-xl md:text-4xl">
-            <span>A unique menu that reflects the</span>
-            <span>true essence of the Bengali cuisine</span>
+              <span>A unique menu that reflects the</span>
+              <span>true essence of the Bengali cuisine</span>
             </div>
-            <button className=" w-fit px-4 py-2 border-amber-400 border-2 font-serif text-sm font-extralight rounded-sm ">
-              Our Menu
-            </button>
+            <Link href="/menu">
+              <button className=" w-fit px-4 py-2 border-amber-400 border-2 font-serif text-sm font-extralight rounded-sm ">
+                Our Menu
+              </button>
+            </Link>
           </div>
         </div>
       </div>
