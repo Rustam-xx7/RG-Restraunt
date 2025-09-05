@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";// this is for firestore database . not for realtime database
 import "firebase/auth";  // this is for authentication
+import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -16,8 +17,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore(app);
+const auth = getAuth(app);
+
 
 export { db };
 export { app };
+export { auth };
