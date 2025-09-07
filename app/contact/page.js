@@ -61,7 +61,7 @@ const Contact = () => {
               className="border rounded px-3 py-2"
               rows={4}
               required
-              maxLength={80}
+              maxLength={150}
             />
             <button
               type="submit"

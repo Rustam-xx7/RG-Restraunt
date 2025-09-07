@@ -6,7 +6,7 @@ import ReviewCard from "./components/ReviewCard";
 export default function Home() {
   return (
     <>
-    <style>
+      <style>
         {`
           /* Custom scrollbar for menu grid */
           .custom-scrollbar {
@@ -37,7 +37,7 @@ export default function Home() {
           />
         </div>
         <div className="hero flex items-center md:h-110 h-70">
-          <div className="bg-[#5b0017]/60 w-[70vw] px-6 py-4 rounded-2xl md:mx-10 md:my-20 md:text-6xl text-xl flex flex-col md:gap-4 font-serif absolute top-30 z-10">
+          <div className="bg-[#5b0017]/60 w-[70vw] px-6 py-4 rounded-2xl md:mx-10 md:my-20 md:text-6xl text-xl flex flex-col md:gap-4 font-serif absolute top-30 z-10 shadow-md shadow-black/20">
             <span>Taste the authentic </span>
             <span>Bengali cusine</span>
           </div>
@@ -52,15 +52,14 @@ export default function Home() {
               ></Image>
             </div>
             <div className="h-40 w-full bg-aber-300 relative">
-
-            <Image
-              src="/img/Half Plate Chicken Biryani.jpeg"
-              alt=""
-              width={170}
-              height={100}
-              className=" rounded-2xl md:rounded-4xl object-cover md:px-2 md:py-0 px-2 py-2 absolute z-0 md:right-22 md:h-130 md:w-140 right-0 top-0"
+              <Image
+                src="/img/Half Plate Chicken Biryani.jpeg"
+                alt=""
+                width={170}
+                height={100}
+                className=" rounded-2xl md:rounded-4xl object-cover  absolute z-0 md:right-22 md:h-130 md:w-140 h-40 w-40 right-0 top-0 shadow-md shadow-black/40"
               ></Image>
-              </div>
+            </div>
           </div>
           <div className="leftPart  w-fit relative md:top-40 top-20 md:px-15 px-6 py-2 text-md font-light flex flex-col items-start gap-6">
             <div className="massage flex flex-col items-start opacity-70">
@@ -68,7 +67,7 @@ export default function Home() {
               <span>serving you something beyond flvor .</span>
             </div>
             <Link href="/menu">
-              <button className=" w-fit px-4 py-2 border-amber-400 border-2 font-serif text-xl font-extralight rounded-sm ">
+              <button className=" w-fit px-4 py-2 border-amber-400 border-2 bg-black/30 shadow-md shadow-amber-400/30  font-serif text-xl font-extralight rounded-sm ">
                 Our Menu
               </button>
             </Link>
@@ -99,14 +98,14 @@ export default function Home() {
               alt=""
               height={500}
               width={500}
-              className="my-2 mx-2 h-30 md:h-100 w-30 md:w-120 object-cover object-center  md:rounded-2xl rounded-sm relative z-2"
+              className="my-2 mx-2 h-30 md:h-100 w-30 md:w-120 object-cover object-center  md:rounded-2xl rounded-sm relative z-2 shadow-md shadow-black/50"
             ></Image>
           </div>
           <div className="rightPart flex flex-col justify-center md:gap-4 ">
-            <span className="md:text-5xl font-serif">
+            <span className="md:text-5xl font-sans">
               A distinctive dining destination{" "}
             </span>
-            <span className="md:text-5xl font-serif">
+            <span className="md:text-5xl font-sans">
               inspired by the culture .
             </span>
             <span className="text-sm font-light text-white/60">
@@ -139,9 +138,9 @@ export default function Home() {
               <span>A unique menu that reflects the</span>
               <span>true essence of the Bengali cuisine</span>
             </div>
-            <Link href="/menu">
-              <button className=" w-fit px-4 py-2 border-amber-400 border-2 font-serif text-sm font-extralight rounded-sm ">
-                Our Menu
+            <Link href="/contact">
+              <button className=" w-fit px-4 py-2 border-amber-400 border-2 bg-black/30  shadow-md shadow-amber-400/30 font-serif text-sm font-extralight rounded-sm ">
+                Give Review
               </button>
             </Link>
           </div>
