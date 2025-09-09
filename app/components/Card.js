@@ -66,7 +66,7 @@ const Card = ({ image, title, price, contains, onAddToCart }) => {
       )}
       {showCart && contains && contains.length > 0 && (
         <div className="absolute -bottom7 left-1/2 -translate-x-1/2 h-ful z-10">
-          <button 
+          <button
             className="text-black font-semibold px-3 py-1 rounded shadow-lg shadow-black/70 z-9 text-xs md:text-base w-max max-w-xs bg-white/50 "
             onClick={(e) => {
               e.stopPropagation();
@@ -78,10 +78,7 @@ const Card = ({ image, title, price, contains, onAddToCart }) => {
         </div>
       )}
       {showContain && (
-        <Contains 
-        contains={contains}
-        title={title} 
-        image={image}/>
+        <Contains contains={contains} title={title} image={image} />
       )}
       <div
         className={`addToCart h-full w-full flex justify-center items-center absolute ${

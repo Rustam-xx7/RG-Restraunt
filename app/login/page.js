@@ -1,7 +1,7 @@
-"use client"
-import React, { useState, useEffect } from 'react'
-import Login from '../loginComponent';
-import UserDashboard from '../userDashboard/page';
+"use client";
+import React, { useState, useEffect } from "react";
+import Login from "../loginComponent";
+import UserDashboard from "../userDashboard/page";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "../firebaseconfig";
 import { useRouter } from "next/navigation";
@@ -35,11 +35,11 @@ const login = () => {
   }, [auth, db]);
 
   const handleAdminDashboard = () => {
-    router.push('/adminDashboard'); // Change to your admin dashboard route
+    router.push("/adminDashboard"); // Change to your admin dashboard route
   };
 
   return (
-    <div className='pt-20 px-10 text-white'>
+    <div className="pt-20 px-10 text-white">
       {guser ? (
         <>
           <UserDashboard />
@@ -56,7 +56,7 @@ const login = () => {
         <Login />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default login
+export default login;

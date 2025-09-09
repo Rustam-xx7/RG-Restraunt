@@ -12,7 +12,11 @@ const Contains = ({ contains, title, image }) => {
         />
         <ul className="list-disc list-inside pl-2 relative z-2">
           <div className="flex items-center gap-4 mb-4">
-            <img src={image} alt={title} className="h-20 w-20 rounded-2xl shadow-md shadow-black/60" />
+            <img
+              src={image}
+              alt={title}
+              className="h-20 w-20 rounded-2xl shadow-md shadow-black/60"
+            />
             <h2 className="text-xl font-semibold font-serif border-b border-black/50 pb-1 text-wrap ">
               {title}
             </h2>

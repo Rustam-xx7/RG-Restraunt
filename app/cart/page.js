@@ -211,7 +211,9 @@ const Cart = () => {
                   Price: {item.price}/-{" "}
                   <span className="text-xs text-gray-300">
                     (₹
-                    {item.unitPrice || item.price / item.quantity || item.price}{" "}
+                    {item.unitPrice ||
+                      item.price / item.quantity ||
+                      item.price}{" "}
                     each)
                   </span>
                 </span>
@@ -238,7 +240,7 @@ const Cart = () => {
           <div className="mb-4 text-lg font-bold text-amber-300">
             Total Price: {totalPrice}/-
           </div>
-          <div className="w-full flex justify-center"> 
+          <div className="w-full flex justify-center">
             <button
               className="mt-4 md:w-100 md:mx-10 px-4 py-2 border border-black/30 bg-black/30 shadow-xl text-green-200  rounded w-full font-semibold"
               onClick={handlePlaceOrder}

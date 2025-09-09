@@ -4,7 +4,6 @@ import { db } from "../firebaseconfig";
 import { collection, addDoc } from "firebase/firestore";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 
-
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
@@ -24,16 +23,16 @@ const Contact = () => {
         createdAt: new Date(),
       });
       toast("❤️ Review submitted!", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
       alert("Error submitting review: " + error.message);

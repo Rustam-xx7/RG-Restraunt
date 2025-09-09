@@ -60,7 +60,9 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-start min-h-[60vh] gap-6">
-      <h1 className="text-3xl font-bold mb-4 text-amber-600 border-b-2 pb-2 border-amber-200/50">Login <span className="text-amber-300">or</span> Signin</h1>
+      <h1 className="text-3xl font-bold mb-4 text-amber-600 border-b-2 pb-2 border-amber-200/50">
+        Login <span className="text-amber-300">or</span> Signin
+      </h1>
       <div>
         <button
           onClick={googleLogin}

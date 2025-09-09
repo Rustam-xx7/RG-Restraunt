@@ -77,7 +77,8 @@ const MyOrders = () => {
                           className="rounded-lg object-cover object-top h-15 w-15"
                           alt="img"
                         />
-                        {item.title} <br /> Qty: {item.quantity} = {item.price}/-
+                        {item.title} <br /> Qty: {item.quantity} = {item.price}
+                        /-
                       </li>
                     ))}
                 </ul>

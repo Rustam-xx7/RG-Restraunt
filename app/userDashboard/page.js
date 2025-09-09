@@ -71,7 +71,9 @@ const UserDashboard = () => {
         </div>
       )}
       <div className="bg-black/20 py-4 px-6 pb-6 mb-8  rounded-md flex flex-col space-y-2">
-        <h1 className="font-bold text-md border-b-2 text-gray-300">Complete Your Profile</h1>
+        <h1 className="font-bold text-md border-b-2 text-gray-300">
+          Complete Your Profile
+        </h1>
         <div className="flex flex-col gap-2">
           <div>
             <span className="font-semibold text-gray-300 mr-2">Name :</span>
@@ -83,26 +85,33 @@ const UserDashboard = () => {
             />
           </div>
           <div>
-          <span className="font-semibold text-gray-300 mr-2">Contact :</span>
-          <input
-            placeholder="Contact"
-            className="bg-black/40 px-4 py-2 rounded-sm w-full"
-            value={profile.contact}
-            onChange={(e) =>
-              setProfile({ ...profile, contact: e.target.value })
-            }
-          /></div>
+            <span className="font-semibold text-gray-300 mr-2">Contact :</span>
+            <input
+              placeholder="Contact"
+              className="bg-black/40 px-4 py-2 rounded-sm w-full"
+              value={profile.contact}
+              onChange={(e) =>
+                setProfile({ ...profile, contact: e.target.value })
+              }
+            />
+          </div>
           <div>
-          <span className="font-semibold text-gray-300 mr-2">Location :</span>
-          <input
-            placeholder="Location"
-            className="bg-black/40 px-4 py-2 rounded-sm w-full"
-            value={profile.location}
-            onChange={(e) =>
-              setProfile({ ...profile, location: e.target.value })
-            }
-          /></div>
-          <button onClick={saveProfile} className="border border-black/20 py-2 mt-4 rounded-sm font-semibold shadow-md shadow-black text-green-300 bg-gray-100/10">Save</button>
+            <span className="font-semibold text-gray-300 mr-2">Location :</span>
+            <input
+              placeholder="Location"
+              className="bg-black/40 px-4 py-2 rounded-sm w-full"
+              value={profile.location}
+              onChange={(e) =>
+                setProfile({ ...profile, location: e.target.value })
+              }
+            />
+          </div>
+          <button
+            onClick={saveProfile}
+            className="border border-black/20 py-2 mt-4 rounded-sm font-semibold shadow-md shadow-black text-green-300 bg-gray-100/10"
+          >
+            Save
+          </button>
         </div>
       </div>
       {guser && (
