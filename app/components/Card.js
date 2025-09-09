@@ -1,12 +1,17 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import Contains from "./Contains";
 
-const Card = ({ image, title, price, onAddToCart }) => {
+const Card = ({ image, title, price, contains, onAddToCart }) => {
   const [showCart, setShowCart] = useState(false);
+  const [showContain, setShowContain] = useState(false);
   const cardRef = useRef(null);
 
   const handleCardClick = () => {
     setShowCart(!showCart);
+  };
+  const handleContainClick = () => {
+    setShowContain(!showContain);
   };
 
   useEffect(() => {
@@ -27,17 +32,56 @@ const Card = ({ image, title, price, onAddToCart }) => {
     };
   }, [showCart]);
 
+  useEffect(() => {
+    const handleClickOutsideContain = (event) => {
+      if (cardRef.current && !cardRef.current.contains(event.target)) {
+        setShowContain(false);
+      }
+    };
+
+    if (showContain) {
+      document.addEventListener("mousedown", handleClickOutsideContain);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutsideContain);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideContain);
+    };
+  }, [showContain]);
+
   return (
     <div
       ref={cardRef}
-      className="bg-amber-500 h-30 md:h-60 w-30 md:w-60 text-white relative cursor-pointer rounded-xl"
+      className="bg-amber-500 h-30 md:h-60 w-30 md:w-60 text-white relative cursor-pointer rounded-xl "
       onClick={handleCardClick}
     >
       {/* Show full title above card when clicked */}
       {showCart && (
-        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 bg-amber-950 text-white px-3 py-1 rounded shadow-lg shadow-black/60 z-20 text-xs md:text-base w-max max-w-xs">
-          {title}
+        <>
+          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 bg-amber-950 text-white px-3 py-1 rounded shadow-lg shadow-black/60 z-9 text-sm md:text-base w-max max-w-xs">
+            {title}
+          </div>
+        </>
+      )}
+      {showCart && contains && contains.length > 0 && (
+        <div className="absolute -bottom7 left-1/2 -translate-x-1/2 h-ful z-10">
+          <button 
+            className="text-black font-semibold px-3 py-1 rounded shadow-lg shadow-black/70 z-9 text-xs md:text-base w-max max-w-xs bg-white/50 "
+            onClick={(e) => {
+              e.stopPropagation();
+              handleContainClick();
+            }}
+          >
+            contains
+          </button>
         </div>
+      )}
+      {showContain && (
+        <Contains 
+        contains={contains}
+        title={title} 
+        image={image}/>
       )}
       <div
         className={`addToCart h-full w-full flex justify-center items-center absolute ${
@@ -62,8 +106,12 @@ const Card = ({ image, title, price, onAddToCart }) => {
         />
       </div>
       <div className="bg-amber-900 h-[20%] flex justify-between items-center px-2 text-sm min-w-0 rounded-b-xl">
-        <span className="truncate flex-1 mr-2" title={title}>{title}</span>
-        <span className="truncate" title={price}>{price}/-</span>
+        <span className="truncate flex-1 mr-2" title={title}>
+          {title}
+        </span>
+        <span className="truncate" title={price}>
+          {price}/-
+        </span>
       </div>
     </div>
   );

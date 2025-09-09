@@ -16,6 +16,7 @@ const menuItems = [
     title: "Veg Thali",
     price: 50,
     category: "Thali",
+    contains: ["Rice", "Dal", "Sag", "Beguni", "Papad", "Chatni"],
   },
   {
     image: "/img/Fish Thali.jpeg",
@@ -40,6 +41,7 @@ const menuItems = [
     title: "Mutton Thali",
     price: 200,
     category: "Thali",
+    contains: ["Rice", "Dal", "Sag", "Beguni", "Papad", "Chatni"],
   },
 
   // Biryani
@@ -397,13 +399,14 @@ const Menu = () => {
             </button>
           ))}
         </div>
-        <div className="my-6 md:my-10 h-100 md:h-150 overflow-y-auto whitespace-nowrap grid md:grid-cols-4 grid-cols-2 gap-6 relative z-2 custom-scrollbar bg-black/10 rounded-2xl px-6 md:py-10 py-2">
+        <div className="my-6 md:my-10 h-100 md:h-150 overflow-y-auto whitespace-nowrap grid md:grid-cols-4 grid-cols-2 gap-6 relative z-10 custom-scrollbar bg-black/10 rounded-2xl px-6 md:py-10 py-4 pb-10">
           {filteredItems.map((item, idx) => (
             <Card
               key={idx}
               image={item.image}
               title={item.title}
               price={item.price}
+              contains={item.contains}
               onAddToCart={handleAddToCart}
             />
           ))}

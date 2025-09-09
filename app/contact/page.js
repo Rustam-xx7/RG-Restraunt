@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { db } from "../firebaseconfig";
 import { collection, addDoc } from "firebase/firestore";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -21,7 +23,17 @@ const Contact = () => {
         message: form.message,
         createdAt: new Date(),
       });
-      alert("Review submitted!");
+      toast("❤️ Review submitted!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
       alert("Error submitting review: " + error.message);
@@ -31,6 +43,19 @@ const Contact = () => {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
       <div className="bg-[#5b0017] h-[100vh] pt- text-white flex flex-col items-center justify-center">
         <div className="md:w-100 bg-black/20 shadow-lg shadow-black/50 mx-auto  p-6 rounded-2xl ">
           <h2 className="text-2xl font-bold mb-4">Give your valuable Review</h2>

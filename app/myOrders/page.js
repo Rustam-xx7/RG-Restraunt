@@ -55,7 +55,7 @@ const MyOrders = () => {
             >
               {/* <div className="font-light text-gray-400">Order ID: {order.id}</div> */}
               <div className="absolute bottom-0 right-0 text-sm text-gray-300/70">
-                Date:{" "}
+                {" "}
                 {order.createdAt
                   ? new Date(order.createdAt.seconds * 1000).toLocaleString()
                   : "N/A"}

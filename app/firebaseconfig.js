@@ -1,25 +1,23 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";// this is for firestore database . not for realtime database
-import "firebase/auth";  // this is for authentication
+import { getFirestore } from "firebase/firestore"; // this is for firestore database . not for realtime database
 import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCCc1idDklg7h24LgMO20tepuMoAstSmys",
-  authDomain: "rgrestaurant-89513.firebaseapp.com",
-  projectId: "rgrestaurant-89513",
-  storageBucket: "rgrestaurant-89513.firebasestorage.app",
-  messagingSenderId: "688448362095",
-  appId: "1:688448362095:web:b6b55879e2bbd4aadadf9a",
-  measurementId: "G-STSZR4JXJW"
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-
 
 export { db };
 export { app };
