@@ -2,7 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,10 @@ export default function RootLayout({ children }) {
           <div className=" h-[10vh] w-full absolute top-0 z-15">
             <Navbar />
           </div>
-          <script src="https://cdn.lordicon.com/lordicon.js"></script>
+          <Script
+            src="https://cdn.lordicon.com/lordicon.js"
+            strategy="afterInteractive"
+          />
           {children}
         </div>
         <div className="bg-[#5b0017] ">

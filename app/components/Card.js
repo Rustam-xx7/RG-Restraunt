@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Contains from "./Contains";
+import Image from "next/image";
 
 const Card = ({ image, title, price, contains, onAddToCart }) => {
   const [showCart, setShowCart] = useState(false);
@@ -96,11 +97,12 @@ const Card = ({ image, title, price, contains, onAddToCart }) => {
         </button>
       </div>
       <div className="h-[80%] rounded-2xl">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover object-center rounded-t-xl bg-amber-700"
-        />
+        <Image 
+        src={image} 
+        alt={title} 
+        width={500} 
+        height={300}
+        className="w-full h-full object-cover object-center rounded-t-xl bg-amber-700"/>
       </div>
       <div className="bg-amber-900 h-[20%] flex justify-between items-center px-2 text-sm min-w-0 rounded-b-xl">
         <span className="truncate flex-1 mr-2" title={title}>

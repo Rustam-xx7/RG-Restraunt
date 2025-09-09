@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="bg-amber-500 text-white w-full h-40 flex flex-col items-center justify-between pt-4 pb-2 gap-4">
       <span className=" font-bold text-xl text-amber-800">
-        Shankar's Restraunt
+        Shankar&apos;s Restraunt
       </span>
       <ul className="flex items-center justify-center  text-sm text-amber-800 relative z-10">
         <Link href="/">

@@ -50,7 +50,7 @@ const ReviewList = () => {
       setLoadingAdmin(false);
     });
     return () => unsubscribe();
-  }, []);
+  }, [router]); 
 
   if (loadingAdmin) return <p>Loading...</p>;
   if (!allowed) return null;

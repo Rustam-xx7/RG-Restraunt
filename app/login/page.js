@@ -7,7 +7,7 @@ import { app } from "../firebaseconfig";
 import { useRouter } from "next/navigation";
 import { getFirestore, doc, getDoc } from "firebase/firestore"; // Import Firestore
 
-const login = () => {
+const LoginPage = () => {
   const [guser, setGuser] = useState(null);
   const [role, setRole] = useState(null);
   const auth = getAuth(app);
@@ -59,4 +59,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default LoginPage;

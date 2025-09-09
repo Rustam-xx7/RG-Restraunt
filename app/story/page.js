@@ -25,7 +25,7 @@ const story = () => {
         </div>
       </div>
       <div className="bg-amber-800 relative z-2 h-50 md:h-70 md:mx-60 my-8 mx-6 p-2 rounded-sm flex flex-col items-center justify-between gap-2 md:gap-6">
-        <span className="font-bold text-2xl">Shankar's Restraunt</span>
+        <span className="font-bold text-2xl">Shankar&apos;s Restraunt</span>
         <div className="h-full w-full flex justify-around">
           <div className="h-full  w-20 flex flex-col items-center gap-2">
             <span className="font-bold text-xl border-b-2">1947</span>

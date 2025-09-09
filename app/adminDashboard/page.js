@@ -33,7 +33,7 @@ const AdminDashboard = () => {
       setLoadingOrders(false);
     });
     return () => unsubscribe();
-  }, [db]);
+  }, []);
 
   useEffect(() => {
     const checkAdmin = async () => {
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
       setLoadingAdmin(false);
     };
     checkAdmin();
-  }, []);
+  }, [router]);
 
   // Function to update order status
   const updateOrderStatus = async (orderId, newStatus) => {
