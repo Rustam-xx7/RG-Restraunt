@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/navbar";
 import "react-toastify/dist/ReactToastify.css";
 import Script from "next/script";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +24,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/* <Head>
+        <Script
+            src="https://cdn.lordicon.com/lordicon.js"
+            strategy="afterInteractive"
+          />
+      </Head> */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -30,10 +37,7 @@ export default function RootLayout({ children }) {
           <div className=" h-[10vh] w-full absolute top-0 z-15">
             <Navbar />
           </div>
-          <Script
-            src="https://cdn.lordicon.com/lordicon.js"
-            strategy="afterInteractive"
-          />
+          
           {children}
         </div>
         <div className="bg-[#5b0017] ">
