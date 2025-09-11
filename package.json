@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lordicon/element": "^2.0.1",
     "@lordicon/react": "^1.11.0",
     "firebase": "^12.2.1",
     "lottie-web": "^5.13.0",

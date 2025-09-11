@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebaseconfig";
 import { db } from "../firebaseconfig";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, where, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import Image from "next/image";
 
 const MyOrders = () => {
@@ -39,6 +39,17 @@ const MyOrders = () => {
     };
   }, []);
 
+  // Function to cancel (delete) an order
+  const handleCancelOrder = async (orderId) => {
+    try {
+      await deleteDoc(doc(db, "orders", orderId));
+      // Optionally, you can show a toast or notification here
+    } catch (error) {
+      console.error("Error cancelling order:", error);
+      // Optionally, show error to user
+    }
+  };
+
   return (
     <div className="pt-20 pb-8 px-5 text-white">
       <h2 className="text-2xl mb-4 font-semibold">My Orders</h2>
@@ -51,7 +62,7 @@ const MyOrders = () => {
           {orders.map((order) => (
             <li
               key={order.id}
-              className=" relative mb-4 border-b border-amber-400/60 pb-6"
+              className="relative mb-4 border-b border-amber-400/60 pb-6"
             >
               {/* <div className="font-light text-gray-400">Order ID: {order.id}</div> */}
               <div className="absolute bottom-0 right-0 text-sm text-gray-300/70">
@@ -83,6 +94,13 @@ const MyOrders = () => {
                     ))}
                 </ul>
               </div>
+              {/* Cancel Order Button */}
+              <button
+                className="mt-4 mb-2  px-4 py-2 shadow-md shadow-black/40  bg-red-600 text-white text-xs  rounded-md hover:bg-red-700"
+                onClick={() => handleCancelOrder(order.id)}
+              >
+                Cancel Order
+              </button>
             </li>
           ))}
         </ul>
