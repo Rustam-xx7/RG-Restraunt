@@ -128,7 +128,7 @@ export default function Home() {
           ></Image>
           <div className="h-full w-full relative z-2 flex flex-col justify-center items-center text-white font-serif gap-2 px-2">
             <Image
-              src="/img/vector.png"
+              src="/img/Vector.png"
               alt=""
               height={40}
               width={40}
