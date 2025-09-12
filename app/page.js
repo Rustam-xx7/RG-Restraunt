@@ -44,7 +44,7 @@ export default function Home() {
           <div className="md:w-200 w-60  md:h-[60vh] h-60 md:pl-2 md:pt-10 absolute z-0 rounded-2xl right-0 top-20 mx-4">
             <div className=" md:h-20 h-8 md:w-20 w-8 absolute md:top-2 -top-3 md:right-12 -right-2 z-4">
               <Image
-                src="/img/vector.png"
+                src="/img/Vector.png"
                 alt=""
                 height={50}
                 width={50}
