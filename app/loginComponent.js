@@ -60,15 +60,15 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-start min-h-[60vh] gap-6">
-      <h1 className="text-3xl font-bold mb-4 text-amber-600 border-b-2 pb-2 border-amber-200/50">
+      <h1 className="text-3xl font-bold mb-4 text-gray-200 border-b-2 pb-2 border-amber-200/50">
         Login <span className="text-amber-300">or</span> Signin
       </h1>
       <div>
         <button
           onClick={googleLogin}
-          className="bg-red-700 text-white px-4 py-2 rounded-md hover:bg-red-800 transition duration-300 shadow-md shadow-black/50 font-semibold"
+          className="bg-white/20 text-white text-xl px-4 py-2 rounded-md hover:bg-green-300/50 transition duration-300 shadow-md shadow-black/50 font-semibold"
         >
-          Login with <span className="text-amber-200">Google</span>
+          Login with <span className="text-blue-300">G</span><span className="text-red-300">o</span><span className="text-amber-200">o</span><span className="text-blue-300">g</span><span className="text-amber-200">l</span><span className="text-green-400">e</span>
         </button>
       </div>
     </div>

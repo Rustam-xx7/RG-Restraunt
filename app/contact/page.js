@@ -96,9 +96,6 @@ const Contact = () => {
             </button>
           </form>
         </div>
-        <div className="mt-10 text-center text-white/90 bg-black/30 p-4 rounded-lg shadow-lg shadow-black/50">
-          <span>Our Contact no : +91 98835 85402</span>
-        </div>
       </div>
     </>
   );

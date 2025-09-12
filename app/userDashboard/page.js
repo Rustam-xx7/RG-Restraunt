@@ -90,6 +90,8 @@ const UserDashboard = () => {
               placeholder="Contact"
               className="bg-black/40 px-4 py-2 rounded-sm w-full"
               value={profile.contact}
+              maxLength={10}
+              minLength={10}
               onChange={(e) =>
                 setProfile({ ...profile, contact: e.target.value })
               }
