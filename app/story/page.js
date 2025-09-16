@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const story = () => {
   return (
-    <div className="bg-[#5b0017] h-[90vh] md:h-[140vh] pt-20 text-white">
+    <div className="bg-[#5b0017] h-[90vh] md:h-[160vh] pt-20 text-white">
       <Image
         src="/img/pattern.png"
         height={500}
@@ -24,21 +24,25 @@ const story = () => {
           </span>
         </div>
       </div>
-      <div className="bg-amber-800 relative z-2 h-50 md:h-70 md:mx-60 my-8 mx-6 p-2 rounded-sm flex flex-col items-center justify-between gap-2 md:gap-6">
+      <div className="bg-amber-800 relative z-2 h-90 md:h-100 md:mx-60 my-8 mx-6 p-2 rounded-sm flex flex-col items-center justify-between gap-2 md:gap-6 pb-2">
         <span className="font-bold text-2xl">Shankar&apos;s Restraunt</span>
         <div className="h-full w-full flex justify-around">
           <div className="h-full  w-20 flex flex-col items-center gap-2">
-            <span className="font-bold text-xl border-b-2">1947</span>
-            <span className="text-sm font-light">We start after british !</span>
-            <span className="text-sm font-light">Starts with sweet</span>
+            <span className="font-bold text-xl border-b-2">2004</span>
+            <span className="text-sm font-light">Hailing from Odisha,</span>
+            <span className="text-sm font-light">we began our journey with a humble sweet shop,</span>
+            <span className="text-sm font-light">earning love and trust for authentic flavors.</span>
           </div>
           <div className="h-full  w-20 flex flex-col items-center gap-2">
             <span className="font-bold text-xl border-b-2">2024</span>
-            <span className="text-sm font-light">We start Our Restaurant</span>
+            <span className="text-sm font-light">Inspired by success,</span>
+            <span className="text-sm font-light">we expanded to open Shankar's Restaurant,</span>
+            <span className="text-sm font-light">serving a wider variety of delicious dishes.</span>
           </div>
           <div className="h-full  w-20 flex flex-col items-center gap-2">
             <span className="font-bold text-xl border-b-2">2025</span>
-            <span className="text-sm font-light">Now we have Sweet & Spicy both </span>
+            <span className="text-sm font-light">Now offering a perfect blend of Sweet & Spicy delights,</span>
+            <span className="text-sm font-light">we continue our mission to serve joy on every plate.</span>
           </div>
         </div>
       </div>
