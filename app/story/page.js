@@ -36,7 +36,7 @@ const story = () => {
           <div className="h-full  w-20 flex flex-col items-center gap-2">
             <span className="font-bold text-xl border-b-2">2024</span>
             <span className="text-sm font-light">Inspired by success,</span>
-            <span className="text-sm font-light">we expanded to open Shankar's Restaurant,</span>
+            <span className="text-sm font-light">we expanded to open Shankar&apos;s Restaurant,</span>
             <span className="text-sm font-light">serving a wider variety of delicious dishes.</span>
           </div>
           <div className="h-full  w-20 flex flex-col items-center gap-2">
