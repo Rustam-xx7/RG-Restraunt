@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const story = () => {
   return (
-    <div className="bg-[#5b0017] h-[90vh] md:h-[160vh] pt-20 text-white">
+    <div className="bg-[#5b0017] h-[100vh] md:h-[160vh] pt-20 text-white">
       <Image
         src="/img/pattern.png"
         height={500}
