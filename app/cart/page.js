@@ -246,7 +246,7 @@ const Cart = () => {
               // onClick={handlePlaceOrder}   // this option 
               disabled={loading}
             >
-              Place Order
+              coming soon...
             </button>
           </div>
           <br />
