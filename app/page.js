@@ -27,6 +27,7 @@ export default function Home() {
         `}
       </style>
       <div className="bg-[#5b0017] h-fit  pt-20 text-white">
+        <div className="absolute top-18 z-10 w-full h-10 bg-black/60 py-2 px-4 shadow-xl shadow-black/40"> <span className="font-semibold">ITS WILL LIVE AFTER DURGA PUJA !</span></div>
         <div>
           <Image
             src="/img/pattern.png"
