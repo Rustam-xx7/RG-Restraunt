@@ -5,13 +5,13 @@ import Image from "next/image";
 const Contains = ({ contains, title, image }) => {
   return (
     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-12">
-      <div className="containsCard px-4 h-80 md:h-100 w-60 md:w-80  bg-white text-black relative z-2 mt-2 shadow-md shadow-black/50 rounded-xl py-4 mb-0 overflow-hidden">
+      <div className="containsCard px-4 h-100 md:h-140 w-80 md:w-100  bg-[#FEFDF5] text-black relative z-2 mt-2 shadow-md shadow-black/50 rounded-xl py-4 mb-0 overflow-y-auto overflow-x-auto">
         <Image
           src="/img/containsBg.jpeg"
           alt=""
           width={500}
           height={300}
-          className="h-full w-full absolute top-0 left-0 object-cover"
+          className="h-full w-full absolute top-0 left-0 object-fill"
         />
         <ul className="list-disc list-inside pl-2 relative z-2">
           <div className="flex items-center gap-4 mb-4">
@@ -27,7 +27,7 @@ const Contains = ({ contains, title, image }) => {
             </h2>
           </div>
           {contains.map((item, idx) => (
-            <li key={idx} className="font-semibold pb-1 md:text-base">
+            <li key={idx} className="font-semibol break-words pb-1 md:text-base">
               {item}
             </li>
           ))}

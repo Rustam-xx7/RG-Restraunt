@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Card from "../components/Card";
+import Card2 from "../components/Card2";
 import Link from "next/link";
 import { getAuth } from "firebase/auth";
 import { app } from "../firebaseconfig";
 import { getFirestore, doc, updateDoc, getDoc } from "firebase/firestore";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 
-// Sample menu data
+// Menu data
 const menuItems = [
   // Thali
   {
@@ -16,63 +17,102 @@ const menuItems = [
     title: "Veg Thali",
     price: 50,
     category: "Thali",
-    contains: ["Rice", "Dal", "Sag", "Beguni", "Papad", "Chatni"],
+    contains: ["Rice", "Dal", "Sabji", "Sak", "Beguni", "Papad", "Chatni"],
   },
   {
     image: "/img/Fish Thali.jpeg",
     title: "Fish Thali",
-    price: 80,
+    price: 90,
     category: "Thali",
+    contains: [
+      "Rice",
+      "Dal",
+      "Sabji",
+      "Sak",
+      "Beguni",
+      "Fish",
+      "Papad",
+      "Chatni",
+    ],
   },
   {
     image: "/img/Egg Thali.jpeg",
     title: "Egg Thali",
     price: 70,
     category: "Thali",
+    contains: [
+      "Rice",
+      "Dal",
+      "Sabji",
+      "Sak",
+      "Beguni",
+      "Egg ( 1 pice )",
+      "Papad",
+      "Chatni",
+    ],
   },
   {
     image: "/img/Chicken Thali.jpeg",
     title: "Chicken Thali",
     price: 140,
     category: "Thali",
+    contains: [
+      "Rice",
+      "Dal",
+      "Sabji",
+      "Sak",
+      "Beguni",
+      "Chicken (2 pice chicken + 1 pice alu)",
+      "Papad",
+      "Chatni",
+    ],
   },
   {
     image: "/img/Mutton Thali.jpeg",
     title: "Mutton Thali",
     price: 200,
     category: "Thali",
-    contains: ["Rice", "Dal", "Sag", "Beguni", "Papad", "Chatni"],
+    contains: [
+      "Rice",
+      "Dal",
+      "Sabji",
+      "Sak",
+      "Beguni",
+      "Mutton (2 pice mutton + 2 pice alu)",
+      "Papad",
+      "Chatni",
+    ],
   },
 
   // Biryani
   {
     image: "/img/Half Plate Chicken Biryani.jpeg",
     title: "Half Plate Chicken Biryani",
-    price: 120,
+    price: 70,
     category: "Biryani",
   },
   {
     image: "/img/Full Plate Chicken Biryani.jpeg",
     title: "Full Plate Chicken Biryani",
-    price: 200,
-    category: "Biryani",
-  },
-  {
-    image: "/img/Half Plate Egg Biryani.jpeg",
-    title: "Half Plate Egg Biryani",
-    price: 70,
+    price: 120,
     category: "Biryani",
   },
   {
     image: "/img/Full Plate Egg Biryani.jpeg",
     title: "Full Plate Egg Biryani",
-    price: 120,
+    price: 90,
     category: "Biryani",
   },
   {
-    image: "/img/Chicken Chaap with Biryani.jpeg",
-    title: "Chicken Chaap with Biryani",
-    price: 200,
+    image: "/img/Full Plate Mutton Biryani.jpg",
+    title: "Full Plate Mutton Biryani",
+    price: 250,
+    category: "Biryani",
+  },
+  {
+    image: "/img/Full Plate Mutton Biryani.jpg",
+    title: "Half Plate Mutton Biryani",
+    price: 130,
     category: "Biryani",
   },
 
@@ -86,7 +126,13 @@ const menuItems = [
   {
     image: "/img/Chicken Roll.jpeg",
     title: "Chicken Roll",
-    price: 70,
+    price: 55,
+    category: "Roll",
+  },
+  {
+    image: "/img/Chicken Roll.jpeg",
+    title: "Egg Chicken Roll",
+    price: 65,
     category: "Roll",
   },
   {
@@ -95,22 +141,42 @@ const menuItems = [
     price: 70,
     category: "Roll",
   },
+  // Moghlai
   {
     image: "/img/Egg Moghlai.jpeg",
     title: "Egg Moghlai",
-    price: 90,
-    category: "Roll",
+    price: 70,
+    category: "Moghlai",
   },
   {
     image: "/img/Chicken Moghlai.jpeg",
     title: "Chicken Moghlai",
     price: 100,
-    category: "Roll",
+    category: "Moghlai",
   },
   {
     image: "/img/Chicken Pakora (4 pcs).jpeg",
     title: "Chicken Pakora (4 pcs)",
     price: 100,
+    category: "Snack",
+    contains: ["1 plate , 4 pice"],
+  },
+  {
+    image: "/img/Chicken Kutlet.jpg",
+    title: "Chicken Kutlet (2 pcs)",
+    price: 120,
+    category: "Snack",
+  },
+  {
+    image: "/img/Chicken Doiwala.jpg",
+    title: "Chicken Doiwala (4 pcs)",
+    price: 160,
+    category: "Snack",
+  },
+  {
+    image: "/img/Chicken Doiwala.jpg",
+    title: "Chicken Doiwala (2 pcs)",
+    price: 80,
     category: "Snack",
   },
 
@@ -120,19 +186,33 @@ const menuItems = [
     title: "Chicken Momo (8 pcs)",
     price: 80,
     category: "Momo",
+    contains: ["8 pice"],
   },
   {
     image: "/img/Fried Momo (8 pcs).jpeg",
     title: "Fried Momo (8 pcs)",
     price: 100,
     category: "Momo",
+    contains: ["8 pice"],
   },
 
   // Chowmein
   {
-    image: "/img/Egg Chowmein (Full).jpeg",
+    image: "/img/Veg Chowmein.jpg",
+    title: "Veg Chowmein (Full)",
+    price: 70,
+    category: "Chowmein",
+  },
+  {
+    image: "/img/Veg Chowmein.jpg",
+    title: "Veg Chowmein (Half)",
+    price: 40,
+    category: "Chowmein",
+  },
+  {
+    image: "/img/Egg Chowmein (Half).jpeg",
     title: "Egg Chowmein (Full)",
-    price: 80,
+    price: 90,
     category: "Chowmein",
   },
   {
@@ -144,39 +224,33 @@ const menuItems = [
   {
     image: "/img/Chicken Chowmein (Full).jpeg",
     title: "Chicken Chowmein (Full)",
-    price: 120,
+    price: 100,
     category: "Chowmein",
   },
   {
     image: "/img/Chicken Chowmein (Half).jpeg",
     title: "Chicken Chowmein (Half)",
-    price: 70,
+    price: 60,
     category: "Chowmein",
   },
   {
     image: "/img/Egg Chicken Chowmein (Full).jpeg",
     title: "Egg Chicken Chowmein (Full)",
-    price: 140,
+    price: 120,
     category: "Chowmein",
   },
   {
     image: "/img/Egg Chicken Chowmein (Half).jpeg",
     title: "Egg Chicken Chowmein (Half)",
-    price: 100,
+    price: 70,
     category: "Chowmein",
   },
 
   // Roti / Paratha / Rice
   {
-    image: "/img/Plain Paratha.jpeg",
-    title: "Plain Paratha",
-    price: 20,
-    category: "Paratha",
-  },
-  {
     image: "/img/Naan.jpeg",
     title: "Naan",
-    price: 20,
+    price: 30,
     category: "Paratha",
   },
   {
@@ -186,9 +260,9 @@ const menuItems = [
     category: "Paratha",
   },
   {
-    image: "/img/Rumali Roti.jpeg",
-    title: "Rumali Roti",
-    price: 20,
+    image: "/img/Alu Paratha.jpg",
+    title: "Alu Paratha",
+    price: 50,
     category: "Paratha",
   },
   {
@@ -203,61 +277,167 @@ const menuItems = [
     price: 70,
     category: "Rice",
   },
+  {
+    image: "/img/Basanti Pulao.jpg",
+    title: "Basanti Pulao ( full )",
+    price: 120,
+    category: "Rice",
+  },
+  {
+    image: "/img/Basanti Pulao.jpg",
+    title: "Basanti Pulao ( half )",
+    price: 60,
+    category: "Rice",
+  },
 
   // Curry
   {
     image: "/img/Chicken Chaap.jpeg",
     title: "Chicken Chaap",
+    price: 60,
+    category: "Curry",
+    contains: ["1 pice"],
+  },
+  {
+    image: "/img/Chicken Curry.jpg",
+    title: "Chicken Curry",
     price: 120,
     category: "Curry",
+    contains: ["4 pice"],
   },
   {
     image: "/img/Chicken Kasha.jpeg",
     title: "Chicken Kasha",
     price: 140,
     category: "Curry",
+    contains: ["4 pice"],
+  },
+  {
+    image: "/img/Chilli Chicken.jpg",
+    title: "Chilli Chicken",
+    price: 160,
+    category: "Curry",
+    contains: ["8 pice"],
+  },
+  {
+    image: "/img/Egg Curry.jpg",
+    title: "Egg Curry",
+    price: 20,
+    category: "curry",
+    contains: ["1 pice"],
+  },
+  {
+    image: "/img/Sabji.jpg",
+    title: "Sabji",
+    price: 30,
+    category: "curry",
+    contains: ["1 plate"],
+  },
+  {
+    image: "/img/Matar Paneer.jpg",
+    title: "Matar Paneer ( full )",
+    price: 140,
+    category: "Curry",
+  },
+  {
+    image: "/img/Matar Paneer.jpg",
+    title: "Matar Paneer ( half )",
+    price: 80,
+    category: "Curry",
+  },
+  {
+    image: "/img/Chana Paneer.jpeg",
+    title: "Chana Paneer ( full )",
+    price: 160,
+    category: "Curry",
+  },
+  {
+    image: "/img/Chana Paneer.jpeg",
+    title: "Chana Paneer ( half )",
+    price: 90,
+    category: "Curry",
+  },
+  {
+    image: "/img/Chilli Paneer.jpg",
+    title: "Chilli Paneer ( full )",
+    price: 200,
+    category: "Curry",
+    contains: ["8 pice"],
+  },
+  {
+    image: "/img/Chilli Paneer.jpg",
+    title: "Chilli Paneer ( half )",
+    price: 100,
+    category: "Curry",
+    contains: ["4 pice"],
+  },
+  {
+    image: "/img/Paneer butter masala.jpg",
+    title: "Paneer butter masala ( full )",
+    price: 180,
+    category: "Curry",
+  },
+  {
+    image: "/img/Paneer butter masala.jpg",
+    title: "Paneer butter masala ( half )",
+    price: 90,
+    category: "Curry",
   },
   {
     image: "/img/Chicken Do Pyaza.jpeg",
     title: "Chicken Do Pyaza",
-    price: 130,
-    category: "Curry",
-  },
-  {
-    image: "/img/Chicken Masala.jpeg",
-    title: "Chicken Masala",
-    price: 120,
-    category: "Curry",
-  },
-  {
-    image: "/img/Egg Curry (2 pcs).jpeg",
-    title: "Egg Curry (2 pcs)",
-    price: 50,
-    category: "Curry",
-  },
-  {
-    image: "/img/Mutton Kasha.jpeg",
-    title: "Mutton Kasha",
     price: 180,
     category: "Curry",
+    contains: ["4 pice"],
   },
   {
-    image: "/img/Mutton Do Pyaza.jpeg",
-    title: "Mutton Do Pyaza",
-    price: 180,
+    image: "/img/Chicken Do Pyaza.jpeg",
+    title: "Chicken Do Pyaza (Half)",
+    price: 90,
     category: "Curry",
-  },
-  {
-    image: "/img/Mutton Masala.jpeg",
-    title: "Mutton Masala",
-    price: 200,
-    category: "Curry",
+    contains: ["2 pice"],
   },
   {
     image: "/img/Fish Curry (1 pc).jpeg",
     title: "Fish Curry (1 pc)",
-    price: 70,
+    price: 45,
     category: "Curry",
+  },
+  // Combo
+  {
+    image: "/img/Basanti Pulao Combo.jpg",
+    title: "Basanti Pulao Combo 1",
+    price: 100,
+    category: "Combo",
+    contains: ["Basanti Pulao", "chicken kasha (2 pice)"],
+  },
+  {
+    image: "/img/Basanti Pulao Combo.jpg",
+    title: "Basanti Pulao Combo 2",
+    price: 100,
+    category: "Combo",
+    contains: ["Basanti Pulao", "Chana Paneer"],
+  },
+  {
+    image: "/img/Basanti Pulao Combo.jpg",
+    title: "Basanti Pulao Combo 3",
+    price: 100,
+    category: "Combo",
+    contains: ["Basanti Pulao", "Matar Paneer"],
+  },
+  {
+    image: "/img/Lachha Paratha Combo.jpg",
+    title: "Lachha Paratha Combo",
+    price: 110,
+    category: "Combo",
+    contains: ["Lachha Paratha (2 pice)", "Chicken Kasha (2 pice)"],
+  },
+  {
+    image: "/img/Lachha Paratha Combo.jpg",
+    title: "Lachha Paratha Combo",
+    price: 110,
+    category: "Combo",
+    contains: ["Lachha Paratha (2 pice)", "Chana & Matar Paneer"],
   },
 ];
 
@@ -266,11 +446,14 @@ const categories = [
   "Thali",
   "Biryani",
   "Roll",
+  "Snack",
+  "Moghlai",
   "Momo",
   "Chowmein",
   "Paratha",
   "Rice",
   "Curry",
+  "Combo",
 ];
 
 const Menu = () => {
@@ -399,9 +582,21 @@ const Menu = () => {
             </button>
           ))}
         </div>
-        <div className="my-6 md:my-10 h-100 md:h-150 overflow-y-auto whitespace-nowrap grid md:grid-cols-4 grid-cols-2 gap-6 relative z-10 custom-scrollbar bg-black/10 rounded-2xl px-6 md:py-10 py-4 pb-10">
+        {/* <div className="my-6 md:my-10 h-130 md:h-150 overflow-y-auto whitespace-nowrap grid md:grid-cols-4 grid-cols-2 gap-6 relative z-10 custom-scrollbar bg-black/10 rounded-2xl px-6 md:py-10 py-4 pb-10">
           {filteredItems.map((item, idx) => (
             <Card
+              key={idx}
+              image={item.image}
+              title={item.title}
+              price={item.price}
+              contains={item.contains}
+              onAddToCart={handleAddToCart}
+            />
+          ))}
+        </div> */}
+        <div className="my-6 md:my-10 h-160 md:h-150 overflow-y-auto whitespace-nowrap grid md:grid-cols-2 grid-cols-1 gap-6 relative z-10 custom-scrollbar bg-black/10 rounded-2xl px-6 md:py-10 py-4 pb-10">
+          {filteredItems.map((item, idx) => (
+            <Card2
               key={idx}
               image={item.image}
               title={item.title}
