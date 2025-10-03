@@ -21,7 +21,7 @@ const Footer = () => {
         </ul>
       </div>
       <span className=" font-semibold border-b border-gray-300/50">Contact us : 9883585402</span>
-      <span className=" font-semibold border-b border-gray-300/50 text-white/40">Dev's Contact : 9641682925</span>
+      <span className=" font-semibold border-b border-gray-300/50 text-white/40">Dev&apos;s Contact : 9641682925</span>
       <div className=" w-full flex flex-col items-center justify-center gap-2 py-1">
         <div className="w-full border-b-1 border-amber-800"></div>
         <span className="text-xs">
