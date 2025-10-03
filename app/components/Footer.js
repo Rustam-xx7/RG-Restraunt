@@ -3,12 +3,12 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-amber-500 text-white w-full h-50 flex flex-col items-center justify-between pt-4 pb-2 gap-4">
-      <span className=" font-bold text-xl text-amber-800">
+    <div className="bg-gray-800 border-t border-gray-900/50 text-white w-full h-fit flex flex-col items-center justify-between pt-6 pb-4 gap-4">
+      <span className=" font-bold text-xl ">
         Shankar&apos;s Restraunt
       </span>
       <div>
-        <ul className="flex items-center justify-center  text-sm text-amber-800 relative z-10">
+        <ul className="flex items-center justify-center  text-sm  relative z-10">
           <Link href="/">
             <li className="mx-4">Home</li>
           </Link>
@@ -20,7 +20,8 @@ const Footer = () => {
           </Link>
         </ul>
       </div>
-      <span className="text-amber-900 font-semibold border-b border-black/50">Contact us : 9641682925</span>
+      <span className=" font-semibold border-b border-gray-300/50">Contact us : 9883585402</span>
+      <span className=" font-semibold border-b border-gray-300/50 text-white/40">Dev's Contact : 9641682925</span>
       <div className=" w-full flex flex-col items-center justify-center gap-2 py-1">
         <div className="w-full border-b-1 border-amber-800"></div>
         <span className="text-xs">

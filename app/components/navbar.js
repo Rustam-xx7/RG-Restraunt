@@ -34,9 +34,9 @@ const Navbar = () => {
           <Link href="/menu">
             <li>Menu</li>
           </Link>
-          <Link href="/story">
+          {/* <Link href="/story">
             <li>Story</li>
-          </Link>
+          </Link> */}
         </ul>
       </div>
       <div className="flex items-center gap-2 md:gap-6 justify-center">
