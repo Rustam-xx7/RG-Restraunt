@@ -243,7 +243,7 @@ const Cart = () => {
           <div className="w-full flex justify-center">
             <button
               className="mt-4 md:w-100 md:mx-10 px-4 py-2 border border-black/30 bg-black/30 shadow-xl text-green-200  rounded w-full font-semibold"
-              // onClick={handlePlaceOrder}   // this option 
+               onClick={handlePlaceOrder}   // this option 
               disabled={loading}
             >
               coming soon...
